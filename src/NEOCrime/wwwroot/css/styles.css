@@ -3,3 +3,17 @@
 .true {
     color: red;
 }
+h3 {
+    text-align: center;
+}
+.results-display {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+.result-panel {
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+}

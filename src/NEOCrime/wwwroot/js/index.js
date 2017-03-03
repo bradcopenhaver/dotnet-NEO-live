@@ -19,7 +19,6 @@
 
         var data = new Data();
 
-        console.log($(this).serialize());
         $.ajax({
             url: "/Home/getNeo/",
             type: "POST",
@@ -28,7 +27,7 @@
             success: function (result) {
                 var htmlResult = "";
                 for (var i = 0; i < result.length; i++) {
-                    htmlResult += "<div class='panel panel-default " + result[i].is_potentially_hazardous_asteroid + "'><div class='panel-heading'><h4>Name: " + result[i].name + "</h4></div><div class='panel-body'><p>Is potentially hazardous: " + result[i].is_potentially_hazardous_asteroid + "<p>Missed us by only: " + result[i].close_approach_data[0].miss_distance.miles + " miles.</p></div></div>";
+                    htmlResult += "<div class='panel panel-default result-panel " + result[i].is_potentially_hazardous_asteroid + "'><div class='panel-heading'><h5><strong>Name: " + result[i].name + "</strong></h5></div><div class='panel-body'><p>Is potentially hazardous: " + result[i].is_potentially_hazardous_asteroid + "<p>Missed us by only: " + parseInt(result[i].close_approach_data[0].miss_distance.miles).toLocaleString() + " miles.</p></div></div>";
 
                     data.datasets.push(new Dataset(result[i].name));
                     data.datasets[i].data.push(
